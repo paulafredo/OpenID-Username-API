@@ -37,6 +37,10 @@ This API uses a Shop2Game cookie.
 If the API stops working or returns errors, you must generate a NEW cookie and replace it in the code.
 Without a valid cookie → the API cannot retrieve any data.
 
+## ❗ Disclaimer
+
+This project is intended for educational purposes only.
 
 ## Credits
 https://great.thug4ff.com/
+
