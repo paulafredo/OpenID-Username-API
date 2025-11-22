@@ -1,8 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
-import json
 from urllib.parse import urlparse
-import time
+
 
 app = Flask(__name__)
 
@@ -50,7 +49,7 @@ def get_openid_data(account_id):
     try:
         response = requests.post(url, headers=headers, json=payload, timeout=10)
         data = response.json()
-
+        print(data)
         open_id = data.get("open_id")
         if open_id:
             return {
@@ -59,6 +58,8 @@ def get_openid_data(account_id):
                 "account_id": account_id,
                 "open_id": open_id,
             }
+        else:
+            return data
 
     except Exception as e:
         print("Error:", e)
@@ -74,8 +75,15 @@ def api_openid():
         return jsonify({"error": "Missing 'uid' parameter"}), 400
 
     result = get_openid_data(uid)
+    if not result.get("open_id"):
+        return jsonify(result), 404
     return jsonify(result)
 
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
+
+
+
+# Demo : http://127.0.0.1:5000/username?uid=305000592
