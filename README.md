@@ -26,7 +26,7 @@ http://127.0.0.1:5000/username?uid=305000592
 ## 📦 Installation
    ```sh
    git clone https://github.com/paulafredo/OpenID-Username-API
-   cd your-repo
+   cd OpenID-Username-API
    pip install requirements.txt
    python app.py
    ```
@@ -43,4 +43,5 @@ This project is intended for educational purposes only.
 
 ## Credits
 https://great.thug4ff.com/
+
 
